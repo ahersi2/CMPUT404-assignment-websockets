@@ -293,6 +293,7 @@ function wsSetup() {
     };
     socket.onmessage = function(msg) {  
         try {
+            //(Abram Hindle) https://github.com/abramhindle/WebSocketsExamples/blob/master/static/chat.html
             debug("WebSocket Recv:" + msg.data);
             //XXX: TODO What are you going to do here?
             var msg2 = JSON.parse(msg.data)  
