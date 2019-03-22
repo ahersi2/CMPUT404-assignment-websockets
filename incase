@@ -97,11 +97,12 @@ def read_ws(ws,client):
     '''A greenlet function that reads from the websocket and updates the world'''
     # XXX: TODO IMPLEMENT ME
     try:
+        
         while True:
             msg=ws.receive()
             print("WS RECV: %s" % msg)
             if(msg is not None):
-                packet=json.loads(msg)
+                packet=json.load(msg)
                 send_all_json(packet)
                 for entity,data in packet.items():
                     myWorld.set(entity,data)
