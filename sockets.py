@@ -28,7 +28,7 @@ sockets = Sockets(app)
 app.debug = True
 
 clients = list()
-
+#(Abram Hindle) https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
 def send_all(msg):
     for client in clients:
         client.put( msg )
@@ -69,7 +69,7 @@ class World:
     def world(self):
         return self.space
 
-#(Abram Hindle)
+#(Abram Hindle) https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
 class Client:
     def __init__(self):
         self.queue = queue.Queue()
@@ -97,14 +97,14 @@ def read_ws(ws,client):
     '''A greenlet function that reads from the websocket and updates the world'''
     # XXX: TODO IMPLEMENT ME
     try:
+        #(Abram Hindle) https://github.com/abramhindle/WebSocketsExamples/blob/master/chat.py
         while True:
             msg=ws.receive()
             print("WS RECV: %s" % msg)
             if(msg is not None):
                 packet=json.loads(msg)
                 send_all_json(packet)
-                for entity,data in packet.items():
-                    myWorld.set(entity,data)
+
                     
                   #   myWorld.update(entity,key,value)
 
